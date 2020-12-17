@@ -17,7 +17,8 @@
   >
     <!-- adding 3D Objects assets -->
     <a-assets>
-      <a-asset-item id="animated-asset" src="assets/Lingga.glb"></a-asset-item>
+      <a-asset-item id="Lingga-Object" src="assets/Lingga.glb"></a-asset-item>
+	  <a-asset-item id="Peripih-Object" src="assets/Peripih.glb"></a-asset-item>
     </a-assets>
 
     <!-- define AR camera to type of marker -->
@@ -27,7 +28,7 @@
         id="bowser-model"
         scale="0.14311503350619903 0.14311503350619903 0.14311503350619903"
         animation-mixer="loop: repeat"
-        gltf-model="#animated-asset"
+        gltf-model="#Peripih-Object"
         class="clickable"
         gesture-handler
       ></a-entity>
@@ -46,21 +47,21 @@
 
     <a-marker type="barcode" value="1">
       <a-entity
-        id="bowser-model"
-        scale="0.14311503350619903 0.14311503350619903 0.14311503350619903"
-        animation-mixer="loop: repeat"
-        gltf-model="#animated-asset"
-        class="clickable"
-        gesture-handler
-      ></a-entity>
+                    id="bowser-model"
+                    scale="0.49736820986776853 0.49736820986776853 0.49736820986776853"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#Peripih-Object"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
       
       <a-entity 
                 position="0.75 1.5 0"
-                text="width: 2; color: white; wrapCount: 20; value: Lingga"
+                text="width: 2; color: white; wrapCount: 20; value: Peripih"
                 ></a-entity>
       <a-entity 
                 position="-1.5 0 0" 
-                text="width: 2; color: white; wrapCount: 20; value: Pada zaman dulu berfungsi sebagai patok batas wilayah daerah"
+                text="width: 2; color: white; wrapCount: 20; value: Salah satu alat ritual keagamaan"
                 ></a-entity>
     </a-marker>
 
