@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+﻿<!DOCTYPE html>
 <!-- include A-Frame -->
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <!-- include AR.js -->
@@ -9,53 +9,62 @@
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
 
 <body style="margin : 0px; overflow: hidden;">
+  <!-- adding scene with a-frame, with gesture-detector, & in detection mode with barcode, the barcode from https://github.com/nicolocarpignoli/artoolkit-barcode-markers-collection -->
+  <a-scene
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+    gesture-detector
+  >
+    <!-- adding 3D Objects assets -->
+    <a-assets>
+      <a-asset-item id="animated-asset" src="assets/Lingga.glb"></a-asset-item>
+    </a-assets>
 
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-	
-		<a-assets>
-            <a-asset-item
-                id="animated-asset"
-                src="assets/asset.glb"
-            ></a-asset-item>
-        </a-assets>
+    <!-- define AR camera to type of marker -->
+    <a-marker type="barcode" value="0">
+      <!-- 3D object entity -->
+      <a-entity
+        id="bowser-model"
+        scale="0.14311503350619903 0.14311503350619903 0.14311503350619903"
+        animation-mixer="loop: repeat"
+        gltf-model="#animated-asset"
+        class="clickable"
+        gesture-handler
+      ></a-entity>
+      
+      <!-- Name object entity -->
+      <a-entity 
+                position="0.75 1.5 0"
+                text="width: 2; color: white; wrapCount: 20; value: Lingga"
+                ></a-entity>
+      <!-- Description object entity -->
+      <a-entity 
+                position="-1.5 0 0" 
+                text="width: 2; color: white; wrapCount: 20; value: Pada zaman dulu berfungsi sebagai patok batas wilayah daerah"
+                ></a-entity>
+    </a-marker>
 
-        <!-- Define AR Camera to move to marker-->
-        <a-marker preset='hiro'>
-            <!-- Create the content in here-->
-            <a-box position='0 0.5 0' material='opacity : 0.5;'></a-box>
-			<a-entity
-                id="bowser-model"
-                scale="0.14311503350619903 0.14311503350619903 0.14311503350619903"
-                animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
-                class="clickable"
-                gesture-handler
-            ></a-entity>
-        </a-marker>
-		
-		<a-marker type='barcode' value='0'>
-			<a-entity
-                id="bowser-model"
-                scale="0.14311503350619903 0.14311503350619903 0.14311503350619903"
-                animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
-                class="clickable"
-                gesture-handler
-            ></a-entity>
-		</a-marker>
-		
-		<a-marker type='barcode' value='1'>
-			<a-entity
-                id="bowser-model"
-                scale="0.14311503350619903 0.14311503350619903 0.14311503350619903"
-                animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
-                class="clickable"
-                gesture-handler
-            ></a-entity>
-		</a-marker>
+    <a-marker type="barcode" value="1">
+      <a-entity
+        id="bowser-model"
+        scale="0.14311503350619903 0.14311503350619903 0.14311503350619903"
+        animation-mixer="loop: repeat"
+        gltf-model="#animated-asset"
+        class="clickable"
+        gesture-handler
+      ></a-entity>
+      
+      <a-entity 
+                position="0.75 1.5 0"
+                text="width: 2; color: white; wrapCount: 20; value: Lingga"
+                ></a-entity>
+      <a-entity 
+                position="-1.5 0 0" 
+                text="width: 2; color: white; wrapCount: 20; value: Pada zaman dulu berfungsi sebagai patok batas wilayah daerah"
+                ></a-entity>
+    </a-marker>
 
-        <!-- Add simple camera -->
-        <a-entity camera></a-entity>
-    </a-scene>
+    <!-- Add AR camera -->
+    <a-entity camera></a-entity>
+  </a-scene>
 </body>
